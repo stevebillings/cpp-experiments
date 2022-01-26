@@ -11,11 +11,12 @@ using namespace std;
 Turret turret(9);
 
 int main() {
-	cout << "Starting test:" << endl;
+	cout << "Starting main.cpp:" << endl;
 	turret.aimLeft();
 	turret.aimRight();
 	turret.aimLeft();
 	turret.aimStraight();
+	turret.report();
 }
 
 

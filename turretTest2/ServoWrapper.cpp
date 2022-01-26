@@ -4,19 +4,33 @@
  *  Created on: Jan 20, 2022
  *      Author: steve
  */
+#define FAKE
+
+#ifdef FAKE
 #include <iostream>
 using namespace std;
+#endif
 #include "ServoWrapper.h"
 
+#ifndef FAKE
+#include <Arduino.h>
+#include <Servo.h>
+
+Servo servo;
+#endif
+
 ServoWrapper::ServoWrapper(unsigned int pwmPin) {
+#ifdef FAKE
 	cout << "ServoWrapper ctor passed pin: " << pwmPin << endl;
-	// servo.attach(pwmPin);
+#else
+	servo.attach(pwmPin);
+#endif
 }
 
 void ServoWrapper::write(unsigned int targetAngle) {
+#ifdef FAKE
 	cout << "ServoWrapper::write() passed targetAngle: " << targetAngle << endl;
-	// servo.write(targetAngle);
+#else
+	servo.write(targetAngle);
+#endif
 }
-
-
-

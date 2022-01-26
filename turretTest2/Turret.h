@@ -10,23 +10,23 @@
 
 #include "ServoWrapper.h"
 
-#define SERVO_STRAIGHT 100
-
 class Turret {
 	private:
 		ServoWrapper* servoWrapper;
-		int currentAngle = SERVO_STRAIGHT;
+		int currentAngle;
+		int minAngle;
+		int maxAngle;
 		void toAngle(int targetAngle);
 		void rightToAngle(int targetAngle);
 		void leftToAngle(int targetAngle);
+		void adjustMinMax();
 
 	public:
 		Turret(unsigned int pwmPin);
 		void aimRight();
 		void aimLeft();
 		void aimStraight();
-
-
+		void report();
 };
 
 #endif /* TURRET_H_ */
