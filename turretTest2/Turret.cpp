@@ -4,11 +4,13 @@
  *  Created on: Jan 18, 2022
  *      Author: steve
  */
-#define FAKE
+#include "Mode.h"
 
 #ifdef FAKE
 #include <iostream>
 using namespace std;
+#else
+#include <Arduino.h>
 #endif
 #include "Turret.h"
 #include "ServoWrapper.h"
