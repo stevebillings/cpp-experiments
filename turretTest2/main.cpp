@@ -9,15 +9,8 @@
 using namespace std;
 #include "Turret.h"
 
-#ifdef FAKE
-#include "Servo.h"
-#else
-#include <Servo.h>
-#endif
 
-Servo servo;
-
-Turret turret(&servo, 9);
+Turret turret(9);
 
 int main() {
 	cout << "Starting main.cpp:" << endl;
