@@ -16,8 +16,10 @@
 
 class ServoWrapper {
 	public:
-		ServoWrapper(Servo* servo, unsigned int pwmPin);
+		ServoWrapper(Servo* givenServo, unsigned int pwmPin);
 		void write(unsigned int targetAngle);
+   private:
+     Servo* servo;
 };
 
 

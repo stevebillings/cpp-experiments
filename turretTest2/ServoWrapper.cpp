@@ -16,11 +16,11 @@ using namespace std;
 #endif
 #include "ServoWrapper.h"
 
-ServoWrapper::ServoWrapper(Servo* servo, unsigned int pwmPin) {
+ServoWrapper::ServoWrapper(Servo* givenServo, unsigned int pwmPin) {
 #ifdef FAKE
 	cout << "ServoWrapper ctor passed pin: " << pwmPin << endl;
 #endif
-	servo = new Servo();
+	servo = givenServo;
 	servo->attach(pwmPin);
 }
 
@@ -28,6 +28,6 @@ void ServoWrapper::write(unsigned int targetAngle) {
 #ifdef FAKE
 	cout << "ServoWrapper::write() passed targetAngle: " << targetAngle << endl;
 #else
-	servo.write(targetAngle);
+	servo->write(targetAngle);
 #endif
 }

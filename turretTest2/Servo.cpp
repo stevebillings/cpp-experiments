@@ -4,6 +4,8 @@
  *  Created on: Jan 28, 2022
  *      Author: steve
  */
+#include "Mode.h"
+#ifdef FAKE
 #include <iostream>
 using namespace std;
 
@@ -16,6 +18,4 @@ void Servo::attach(unsigned int pin) {
 void Servo::write(unsigned int angle) {
 	printf("Servo.write(%d)\n", angle);
 }
-
-
-
+#endif
