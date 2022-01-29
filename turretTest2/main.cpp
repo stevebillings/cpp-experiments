@@ -13,7 +13,6 @@ using namespace std;
 Turret turret(9);
 
 int main() {
-	cout << "Starting main.cpp:" << endl;
 	turret.aimLeft();
 	turret.aimRight();
 	turret.aimLeft();
