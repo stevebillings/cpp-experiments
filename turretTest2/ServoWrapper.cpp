@@ -9,22 +9,19 @@
 #ifdef FAKE
 #include <iostream>
 using namespace std;
+#include "Servo.h"
+#else
+#include <Arduino.h>
+#include <Servo.h>
 #endif
 #include "ServoWrapper.h"
 
-#ifndef FAKE
-#include <Arduino.h>
-#include <Servo.h>
-
-Servo servo;
-#endif
-
-ServoWrapper::ServoWrapper(unsigned int pwmPin) {
+ServoWrapper::ServoWrapper(Servo* servo, unsigned int pwmPin) {
 #ifdef FAKE
 	cout << "ServoWrapper ctor passed pin: " << pwmPin << endl;
-#else
-	servo.attach(pwmPin);
 #endif
+	servo = new Servo();
+	servo->attach(pwmPin);
 }
 
 void ServoWrapper::write(unsigned int targetAngle) {

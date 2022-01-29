@@ -4,16 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../Servo.cpp \
 ../ServoWrapper.cpp \
 ../Turret.cpp \
 ../main.cpp 
 
 CPP_DEPS += \
+./Servo.d \
 ./ServoWrapper.d \
 ./Turret.d \
 ./main.d 
 
 OBJS += \
+./Servo.o \
 ./ServoWrapper.o \
 ./Turret.o \
 ./main.o 
@@ -31,7 +34,7 @@ OBJS += \
 clean: clean--2e-
 
 clean--2e-:
-	-$(RM) ./ServoWrapper.d ./ServoWrapper.o ./Turret.d ./Turret.o ./main.d ./main.o
+	-$(RM) ./Servo.d ./Servo.o ./ServoWrapper.d ./ServoWrapper.o ./Turret.d ./Turret.o ./main.d ./main.o
 
 .PHONY: clean--2e-
 
