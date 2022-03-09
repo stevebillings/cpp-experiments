@@ -20,7 +20,8 @@ int main() {
 	turret.aimLeft();
 	int dist = pinger.getObstacleDistanceInches();
 	printf("Left obstacle dist: %d\n", dist);
-	turret.aimStraight();dist = pinger.getObstacleDistanceInches();
+	turret.aimStraight();
+	dist = pinger.getObstacleDistanceInches();
 	printf("Straight obstacle dist: %d\n", dist);
 	drive.startForward();
 	drive.stop();
