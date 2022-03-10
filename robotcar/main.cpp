@@ -5,34 +5,27 @@
  *      Author: steve
  */
 #include "Mode.h"
+#include "Turret.h"
+#include "Drive.h"
+#include "Pinger.h"
+#include "Controller.h"
 #include <iostream>
 using namespace std;
-#include "Turret.h"
-#include "Pinger.h"
-#include "Drive.h"
 
 
-Turret turret(9);
-Pinger pinger(10, 11);
-Drive drive;
+Turret* turret;
+Drive* drive;
+Pinger* pinger;
+Controller* controller;
 
 int main() {
-	turret.aimLeft();
-	int dist = pinger.getObstacleDistanceInches();
-	printf("Left obstacle dist: %d\n", dist);
-	turret.aimStraight();
-	dist = pinger.getObstacleDistanceInches();
-	printf("Straight obstacle dist: %d\n", dist);
-	drive.startForward();
-	drive.stop();
+	turret = new Turret(9);
+	  drive = new Drive();
+	  pinger = new Pinger(4, 5);
 
-	turret.aimRight();
-	dist = pinger.getObstacleDistanceInches();
-	printf("Right obstacle dist: %d\n", dist);
-
-	turret.aimStraight();
-	dist = pinger.getObstacleDistanceInches();
-	printf("Straight obstacle dist: %d\n", dist);
+	controller = new Controller(turret, drive, pinger);
+	controller->setup();
+	controller->loop();
 }
 
 
