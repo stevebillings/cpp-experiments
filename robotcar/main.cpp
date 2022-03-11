@@ -24,8 +24,16 @@ int main() {
 	  pinger = new Pinger(4, 5);
 
 	controller = new Controller(turret, drive, pinger);
-	controller->setup();
-	controller->loop();
+	State state = controller->setup();
+
+	state = controller->loop(initial);
+	cout << "loop(initial): " << state << endl;
+
+	state = controller->loop(driving);
+	cout << "loop(driving): " << state << endl;
+
+	state = controller->loop(stopped);
+	cout << "loop(stopped): " << state << endl;
 }
 
 

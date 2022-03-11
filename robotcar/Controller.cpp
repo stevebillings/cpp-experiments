@@ -8,7 +8,6 @@
 #define OBSTACLE_SAFE_DIST_INCHES 6
 #define START_SIGNAL_DIST_INCHES 2
 
-enum State {initial, startSignalInProgress, readyToDrive, driving, stopped};
 
 State state = initial;
 int stuckCount = 0;
@@ -19,10 +18,11 @@ Controller::Controller(Turret* turret, Drive* drive, Pinger* pinger) {
   this->pinger = pinger;
 }
 
-void Controller::setup() {
+State Controller::setup() {
+	return state;
 }
 
-void Controller::loop() {
+State Controller::loop(State state) {
 
   int sensedObstacleDistInches = pinger->getObstacleDistanceInches();
   switch (state) {
@@ -73,6 +73,7 @@ void Controller::loop() {
         state = stopped;
       }
   }
+  return state;
 }
 
 
