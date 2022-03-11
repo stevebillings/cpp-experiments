@@ -33,7 +33,7 @@
 
 **/Debug/**
 
-robotcar/bazel-bin
-robotcar/bazel-out
-robotcar/bazel-robotcar
-robotcar/bazel-testlogs
+**/bazel-bin
+**/bazel-out
+**/bazel-robotcar
+**/bazel-testlogs
