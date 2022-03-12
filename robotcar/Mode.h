@@ -9,7 +9,7 @@
 #define MODE_H_
 
 #define FAKE
-
+#define TRACE
 
 
 #endif /* MODE_H_ */
