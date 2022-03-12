@@ -6,8 +6,9 @@
 
 class Pinger {
 	public:
+		Pinger();
 		Pinger(unsigned int triggerPin, unsigned int echoPin);
-		int getObstacleDistanceInches();
+		virtual int getObstacleDistanceInches();
 		~Pinger();
 	private:
 		NewPing *p_pinger;

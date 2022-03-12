@@ -10,6 +10,9 @@
 
 #include "Pinger.h"
 
+Pinger::Pinger() {
+}
+
 Pinger::Pinger(unsigned int triggerPin, unsigned int echoPin) {
 #ifndef FAKE
 	p_pinger = new NewPing(triggerPin, echoPin, MAX_SENSOR_DISTANCE);

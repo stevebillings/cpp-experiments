@@ -8,6 +8,7 @@
 #include "Turret.h"
 #include "Drive.h"
 #include "Pinger.h"
+#include "PingerMock.h"
 #include "Controller.h"
 #include <iostream>
 #include <gtest/gtest.h>
@@ -22,7 +23,7 @@ Controller* controller;
 int main() {
 	turret = new Turret(9);
 	  drive = new Drive();
-	  pinger = new Pinger(4, 5);
+	  pinger = new PingerMock(4, 5);
 
 	controller = new Controller(turret, drive, pinger);
 	State state = controller->setup();
