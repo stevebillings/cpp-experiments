@@ -21,6 +21,8 @@ class Controller {
 		bool pathIsClear(int sensedObstacleDistInches);
 		void ledBlink(int pin, int numBlinks);
 		Direction getSafeDirection();
+		const char * getDirectionName(Direction dir);
+		const char * getStateName(State state);
 };
 
 #endif /* CONTROLLER_H_ */

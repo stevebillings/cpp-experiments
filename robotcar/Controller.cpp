@@ -4,6 +4,8 @@
 #include "Drive.h"
 #include "Pinger.h"
 #include "Controller.h"
+#include <iostream>
+using namespace std;
 
 #define OBSTACLE_SAFE_DIST_INCHES 6
 #define START_SIGNAL_DIST_INCHES 2
@@ -25,6 +27,7 @@ State Controller::setup() {
 State Controller::loop(State state) {
 
   int sensedObstacleDistInches = pinger->getObstacleDistanceInches();
+  cout << "Old state: " << getStateName(state) << endl;
   switch (state) {
     case initial:
       if (pingSensorBlocked(sensedObstacleDistInches)) {
@@ -42,11 +45,12 @@ State Controller::loop(State state) {
         state = readyToDrive;
       } else {
         Direction safeDirection = getSafeDirection();
-        if (safeDirection == left) {
+	cout << "Got safe dir: " << getDirectionName(safeDirection) << endl;
+        if (safeDirection == Direction::left) {
           drive->turnLeft();
-        } else if (safeDirection == right) {
+        } else if (safeDirection == Direction::right) {
           drive->turnRight();
-        } else if (safeDirection == straight) {
+        } else if (safeDirection == Direction::straight) {
           state = readyToDrive;
         } else {
           drive->turnAround();
@@ -73,6 +77,7 @@ State Controller::loop(State state) {
         state = stopped;
       }
   }
+  cout << "New state: " << getStateName(state) << endl;
   return state;
 }
 
@@ -98,23 +103,70 @@ Direction Controller::getSafeDirection() {
   int leftDistance = 0;
   int rightDistance = 0;
 
+  cout << "Aiming right" << endl;
   turret->aimRight();
   rightDistance = pinger->getObstacleDistanceInches();
 
+  cout << "Aiming left" << endl;
   turret->aimLeft();
   leftDistance = pinger->getObstacleDistanceInches();
   
+  cout << "Aiming straight" << endl;
   turret->aimStraight();
 
   if (leftDistance > rightDistance) {
     if (pathIsClear(leftDistance)) {
-      return left;
+      return Direction::left;
     }
   } else {
     if (pathIsClear(rightDistance)) {
-      return right;
+      return Direction::right;
     }
   }
 
   return none;
+}
+
+// TODO: move to Direction
+const char * Controller::getDirectionName(Direction dir) {
+  const char *p;
+  switch(dir) {
+    case Direction::left:
+	p = "left";
+	break;
+    case Direction::right:
+	p = "right";
+	break;
+    case Direction::straight:
+	p = "straight";
+	break;
+    default:
+        p = "UNKNOWN";
+  }
+  return p;
+}
+
+// TODO: move to State
+const char * Controller::getStateName(State state) {
+  const char *p;
+  switch(state) {
+    case State::initial:
+	p = "initial";
+	break;
+    case State::startSignalInProgress:
+	p = "startSignalInProgress";
+	break;
+    case State::readyToDrive:
+	p = "readyToDrive";
+	break;
+    case State::driving:
+	p = "driving";
+	break;
+    case State::stopped:
+	p = "stopped";
+	break;
+    default:
+        p = "UNKNOWN";
+  }
+  return p;
 }
