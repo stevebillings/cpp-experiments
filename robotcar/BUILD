@@ -10,7 +10,7 @@ cc_test(
 cc_test(
   name = "statechoosertest",
   size = "small",
-  srcs = ["StateChooserTest.cpp", "StateChooser.cpp", "StateChooser.h", "State.h"],
+  srcs = ["StateChooserTest.cpp", "StateChooser.cpp", "StateChooser.h", "State.h", "StateNamer.h", "StateNamer.cpp"],
   deps = ["@com_google_googletest//:gtest_main"],
 )
 

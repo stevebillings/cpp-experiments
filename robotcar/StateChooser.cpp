@@ -5,5 +5,15 @@
 using namespace std;
 
 State StateChooser::choose(State currentState) {
-	return readyToDrive;
+	return initial;
+}
+
+State StateChooser::choose(State currentState, int inchesClearAhead) {
+
+	return initial;
+}
+
+State StateChooser::choose(State currentState, int inchesClearAhead, int inchesClearLeft, int inchesClearRight) {
+
+	return initial;
 }

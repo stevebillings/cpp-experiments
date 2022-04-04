@@ -26,9 +26,9 @@ State Controller::setup() {
 }
 
 State Controller::loop(State state) {
-
+  StateNamer* stateNamer = new StateNamer();
   int sensedObstacleDistInches = pinger->getObstacleDistanceInches();
-  cout << "Old state: " << getStateName(state) << endl;
+  cout << "Old state: " << stateNamer->getStateName(state) << endl;
   switch (state) {
     case initial:
       if (pingSensorBlocked(sensedObstacleDistInches)) {
@@ -78,7 +78,7 @@ State Controller::loop(State state) {
         state = stopped;
       }
   }
-  cout << "New state: " << getStateName(state) << endl;
+  cout << "New state: " << stateNamer->getStateName(state) << endl;
   return state;
 }
 
@@ -140,34 +140,6 @@ const char * Controller::getDirectionName(Direction dir) {
 	break;
     case Direction::straight:
 	p = "straight";
-	break;
-    default:
-        p = "UNKNOWN";
-  }
-  return p;
-}
-
-// TODO: move to State
-const char * Controller::getStateName(State state) {
-  const char *p;
-  switch(state) {
-    case State::initial:
-	p = "initial";
-	break;
-    case State::startSignalInProgress:
-	p = "startSignalInProgress";
-	break;
-    case State::readyToDrive:
-	p = "readyToDrive";
-	break;
-    case State::driving:
-	p = "driving";
-	break;
-    case State::stopped:
-	p = "stopped";
-	break;
-    case State::stoppedNeedPivot:
-	p = "stoppedNeedPivot";
 	break;
     default:
         p = "UNKNOWN";
