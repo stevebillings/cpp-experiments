@@ -5,7 +5,6 @@
 #ifndef CONTROLLER_H_
 #define CONTROLLER_H_
 
-enum State {initial, startSignalInProgress, readyToDrive, driving, stopped};
 enum Direction {left, straight, right, none};
 
 class Controller {

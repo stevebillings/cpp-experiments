@@ -3,6 +3,7 @@
 #include "Turret.h"
 #include "Drive.h"
 #include "Pinger.h"
+#include "State.h"
 #include "Controller.h"
 #include <iostream>
 using namespace std;
@@ -164,6 +165,9 @@ const char * Controller::getStateName(State state) {
 	break;
     case State::stopped:
 	p = "stopped";
+	break;
+    case State::stoppedNeedPivot:
+	p = "stoppedNeedPivot";
 	break;
     default:
         p = "UNKNOWN";

@@ -9,6 +9,7 @@
 #include "Drive.h"
 #include "Pinger.h"
 #include "PingerMock.h"
+#include "State.h"
 #include "Controller.h"
 #include <iostream>
 #include <gtest/gtest.h>
