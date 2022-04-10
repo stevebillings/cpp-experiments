@@ -7,8 +7,6 @@
 #include "StateNamer.h"
 #include "StateChooser.h"
 #include "Controller.h"
-#include <iostream>
-using namespace std;
 
 #define OBSTACLE_SAFE_DIST_INCHES 6
 #define START_SIGNAL_DIST_INCHES 2

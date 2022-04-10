@@ -1,8 +1,5 @@
 #include "State.h"
 #include "StateChooser.h"
-#include <iostream>
-#include <gtest/gtest.h>
-using namespace std;
 
 #define OBSTACLE_SAFE_DIST_INCHES 6
 #define START_SIGNAL_DIST_INCHES 2
