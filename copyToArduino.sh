@@ -11,8 +11,9 @@ cp Controller.h     ../../arduino/robotcar
 cp Controller.cpp   ../../arduino/robotcar
 cp Drive.cpp        ../../arduino/robotcar
 cp Drive.h          ../../arduino/robotcar
-cp Pinger.cpp       ../../arduino/robotcar
 cp Pinger.h         ../../arduino/robotcar
+cp PingerReal.h     ../../arduino/robotcar
+cp PingerReal.cpp   ../../arduino/robotcar
 cp Servo.cpp        ../../arduino/robotcar
 cp Servo.h          ../../arduino/robotcar
 cp ServoWrapper.cpp ../../arduino/robotcar
