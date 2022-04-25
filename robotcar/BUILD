@@ -1,7 +1,7 @@
 cc_test(
   name = "bot",
   size = "small",
-  srcs = ["main.cpp", "State.h", "StateNamer.h", "StateChooser.h", "StateNamer.cpp", "StateChooser.cpp",
+  srcs = ["ControllerTest.cpp", "State.h", "StateNamer.h", "StateChooser.h", "StateNamer.cpp", "StateChooser.cpp",
 		"Controller.h", "Controller.cpp", "Drive.h", "DriveMock.h", "DriveMock.cpp", "Pinger.h",
 		"PingerMock.h", "PingerMock.cpp",
 		"Turret.h", "TurretMock.h", "TurretMock.cpp"
