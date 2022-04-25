@@ -1,10 +1,10 @@
-#ifndef NEWTURRETREAL_H_
-#define NEWTURRETREAL_H_
+#ifndef TURRETREAL_H_
+#define TURRETREAL_H_
 
 #include "ServoWrapper.h"
 #include <Servo.h>
 
-class NewTurretReal : public NewTurret {
+class TurretReal : public Turret {
 	private:
 		ServoWrapper* servoWrapper;
 		int currentAngle;
@@ -13,10 +13,10 @@ class NewTurretReal : public NewTurret {
 		void toAngle(int targetAngle);
 
 	public:
-		NewTurretReal(unsigned int pwmPin);
+		TurretReal(unsigned int pwmPin);
 		void aimRight();
 		void aimLeft();
 		void aimStraight();
 };
 
-#endif /* NEWTURRETREAL_H_ */
+#endif /* TURRETREAL_H_ */

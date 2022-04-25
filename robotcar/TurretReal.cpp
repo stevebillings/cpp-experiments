@@ -1,7 +1,7 @@
 #include "Mode.h"
 
 #include <Arduino.h>
-#include "NewTurret.h"
+#include "Turret.h"
 #include "ServoWrapper.h"
 
 #define SERVO_STRAIGHT 100
@@ -11,28 +11,28 @@
 #define LEFT_TO_RIGHT_DELTA -4
 #define RIGHT_TO_LEFT_DELTA 4
 
-NewTurretReal::NewTurretReal(unsigned int pwmPin) {
+TurretReal::TurretReal(unsigned int pwmPin) {
 	servoWrapper = new ServoWrapper(pwmPin); // TODO delete this in dtor
 	currentAngle = SERVO_STRAIGHT;
 	minAngle = currentAngle;
 	maxAngle = currentAngle;
 }
 
-void NewTurretReal::aimRight() {
+void TurretReal::aimRight() {
 	toAngle(SERVO_RIGHT);
 }
 
-void NewTurretReal::aimLeft() {
+void TurretReal::aimLeft() {
 	toAngle(SERVO_LEFT);
 }
 
-void NewTurretReal::aimStraight() {
+void TurretReal::aimStraight() {
 	toAngle(SERVO_STRAIGHT);
 }
 
 // private
 
-void NewTurretReal::toAngle(int targetAngle) {
+void TurretReal::toAngle(int targetAngle) {
 	servoWrapper->write(targetAngle);
         delay(750);
 }

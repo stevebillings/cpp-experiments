@@ -5,7 +5,7 @@
  *      Author: steve
  */
 #include "Mode.h"
-#include "NewTurretMock.h"
+#include "TurretMock.h"
 #include "Drive.h"
 #include "Pinger.h"
 #include "PingerMock.h"
@@ -16,13 +16,13 @@
 using namespace std;
 
 
-NewTurret* turret;
+Turret* turret;
 Drive* drive;
 Pinger* pinger;
 Controller* controller;
 
 int main() {
-	turret = new NewTurretMock();
+	turret = new TurretMock();
 	  drive = new Drive();
 	  pinger = new PingerMock(4, 5);
 

@@ -1,6 +1,6 @@
 #include "Mode.h"
 #include "Mock.h"
-#include "NewTurret.h"
+#include "Turret.h"
 #include "Drive.h"
 #include "Pinger.h"
 #include "State.h"
@@ -15,7 +15,7 @@
 State state = initial;
 int stuckCount = 0;
 
-Controller::Controller(NewTurret* turret, Drive* drive, Pinger* pinger) {
+Controller::Controller(Turret* turret, Drive* drive, Pinger* pinger) {
   this->turret = turret;
   this->drive = drive;
   this->pinger = pinger;

@@ -1,6 +1,6 @@
-#include "NewTurret.h"
+#include "Turret.h"
 
-class NewTurretMock : public NewTurret {
+class TurretMock : public Turret {
 	public:
 		void aimRight() override;
 		void aimLeft() override;
