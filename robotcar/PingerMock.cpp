@@ -1,5 +1,3 @@
-#include "Mode.h"
-#include "Pinger.h"
 #include "PingerMock.h"
 #include <iostream>
 using namespace std;

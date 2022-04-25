@@ -1,3 +1,4 @@
+#include "Pinger.h"
 
 class PingerMock : public Pinger {
 	public:
