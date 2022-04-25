@@ -9,6 +9,18 @@ cc_test(
 )
 
 cc_test(
+  name = "bot2",
+  size = "small",
+  srcs = ["main.cpp", "Mode.h", "State.h", "StateNamer.h", "StateChooser.h", "StateNamer.cpp", "StateChooser.cpp",
+		"Controller.h", "Controller.cpp", "Drive.h", "Drive.cpp", "Mock.h", "Pinger.h",
+		"PingerMock.h", "PingerMock.cpp",
+		"Servo.h", "Servo.cpp", "ServoWrapper.h", "ServoWrapper.cpp",
+		"NewTurret.h", "NewTurretMock.h", "NewTurretMock.cpp"
+		],
+  deps = ["@com_google_googletest//:gtest_main"],
+)
+
+cc_test(
   name = "statechoosertest",
   size = "small",
   srcs = ["StateChooserTest.cpp", "StateChooser.cpp", "StateChooser.h", "State.h", "StateNamer.h", "StateNamer.cpp"],

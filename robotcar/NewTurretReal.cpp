@@ -1,18 +1,7 @@
-/*
- * Turret.cpp
- *
- *  Created on: Jan 18, 2022
- *      Author: steve
- */
 #include "Mode.h"
 
-#ifdef FAKE
-#include <iostream>
-using namespace std;
-#else
 #include <Arduino.h>
-#endif
-#include "Turret.h"
+#include "NewTurret.h"
 #include "ServoWrapper.h"
 
 #define SERVO_STRAIGHT 100
@@ -22,33 +11,28 @@ using namespace std;
 #define LEFT_TO_RIGHT_DELTA -4
 #define RIGHT_TO_LEFT_DELTA 4
 
-Turret::Turret(unsigned int pwmPin) {
-#ifdef FAKE
-	cout << "Turret ctor passed pin: " << pwmPin << endl;
-#endif
+NewTurretReal::NewTurretReal(unsigned int pwmPin) {
 	servoWrapper = new ServoWrapper(pwmPin); // TODO delete this in dtor
 	currentAngle = SERVO_STRAIGHT;
 	minAngle = currentAngle;
 	maxAngle = currentAngle;
 }
 
-void Turret::aimRight() {
+void NewTurretReal::aimRight() {
 	toAngle(SERVO_RIGHT);
 }
 
-void Turret::aimLeft() {
+void NewTurretReal::aimLeft() {
 	toAngle(SERVO_LEFT);
 }
 
-void Turret::aimStraight() {
+void NewTurretReal::aimStraight() {
 	toAngle(SERVO_STRAIGHT);
 }
 
 // private
 
-void Turret::toAngle(int targetAngle) {
+void NewTurretReal::toAngle(int targetAngle) {
 	servoWrapper->write(targetAngle);
-#ifndef FAKE
-  delay(750);
-#endif
+        delay(750);
 }

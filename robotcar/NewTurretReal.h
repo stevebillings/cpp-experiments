@@ -1,21 +1,10 @@
-/*
- * Turret.h
- *
- *  Created on: Jan 18, 2022
- *      Author: steve
- */
-
-#ifndef TURRET_H_
-#define TURRET_H_
+#ifndef NEWTURRETREAL_H_
+#define NEWTURRETREAL_H_
 
 #include "ServoWrapper.h"
-#ifdef FAKE
-#include "Servo.h"
-#else
 #include <Servo.h>
-#endif
 
-class Turret {
+class NewTurretReal : public NewTurret {
 	private:
 		ServoWrapper* servoWrapper;
 		int currentAngle;
@@ -24,10 +13,10 @@ class Turret {
 		void toAngle(int targetAngle);
 
 	public:
-		Turret(unsigned int pwmPin);
+		NewTurretReal(unsigned int pwmPin);
 		void aimRight();
 		void aimLeft();
 		void aimStraight();
 };
 
-#endif /* TURRET_H_ */
+#endif /* NEWTURRETREAL_H_ */

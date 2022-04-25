@@ -9,11 +9,11 @@ enum Direction {left, straight, right, none};
 
 class Controller {
 	public:
-    	Controller(Turret* turret, Drive* drive, Pinger* pinger);
+    	Controller(NewTurret* turret, Drive* drive, Pinger* pinger);
 		State setup();
 		State loop(State state);
 	private:
-		Turret* turret;
+		NewTurret* turret;
 		Drive* drive;
 		Pinger* pinger;
 		bool pingSensorBlocked(int sensedObstacleDistInches);
