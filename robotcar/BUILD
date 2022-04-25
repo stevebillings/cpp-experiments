@@ -4,7 +4,6 @@ cc_test(
   srcs = ["main.cpp", "Mode.h", "State.h", "StateNamer.h", "StateChooser.h", "StateNamer.cpp", "StateChooser.cpp",
 		"Controller.h", "Controller.cpp", "Drive.h", "Drive.cpp", "Mock.h", "Pinger.h",
 		"PingerMock.h", "PingerMock.cpp",
-		"Servo.h", "Servo.cpp", "ServoWrapper.h", "ServoWrapper.cpp",
 		"Turret.h", "TurretMock.h", "TurretMock.cpp"
 		],
   deps = ["@com_google_googletest//:gtest_main"],
