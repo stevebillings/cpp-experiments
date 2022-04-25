@@ -9,8 +9,9 @@ cp StateChooser.cpp ../../arduino/robotcar
 cp State.h          ../../arduino/robotcar
 cp Controller.h     ../../arduino/robotcar
 cp Controller.cpp   ../../arduino/robotcar
-cp Drive.cpp        ../../arduino/robotcar
 cp Drive.h          ../../arduino/robotcar
+cp DriveReal.h      ../../arduino/robotcar
+cp DriveReal.cpp    ../../arduino/robotcar
 cp Pinger.h         ../../arduino/robotcar
 cp PingerReal.h     ../../arduino/robotcar
 cp PingerReal.cpp   ../../arduino/robotcar
