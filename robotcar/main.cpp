@@ -6,7 +6,7 @@
  */
 #include "Mode.h"
 #include "TurretMock.h"
-#include "Drive.h"
+#include "DriveMock.h"
 #include "Pinger.h"
 #include "PingerMock.h"
 #include "State.h"
@@ -23,7 +23,7 @@ Controller* controller;
 
 int main() {
 	turret = new TurretMock();
-	  drive = new Drive();
+	  drive = new DriveMock();
 	  pinger = new PingerMock(4, 5);
 
 	controller = new Controller(turret, drive, pinger);
