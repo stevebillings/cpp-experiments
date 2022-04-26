@@ -2,12 +2,13 @@
 #include <iostream>
 using namespace std;
 
-PingerMock::PingerMock(unsigned int triggerPin, unsigned int echoPin) {
+PingerMock::PingerMock(int obstacleDistanceInches) {
+	this->obstacleDistanceInches = obstacleDistanceInches;
 }
 
 int PingerMock::getObstacleDistanceInches() {
-  cout << "PingerMock.getObstacleDistanceInches() called; returning 20" << endl;
-  return 20;
+  cout << "PingerMock.getObstacleDistanceInches() called; returning " << obstacleDistanceInches << endl;
+  return obstacleDistanceInches;
 }
 
 PingerMock::~PingerMock() {

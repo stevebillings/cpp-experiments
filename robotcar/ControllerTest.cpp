@@ -19,24 +19,68 @@ Drive* drive;
 Pinger* pinger;
 Controller* controller;
 
-int main() {
-	printf("RUNNING\n");
+TEST(StateChooserTestInitial, BasicAssertions) {
 	turret = new TurretMock();
-	  drive = new DriveMock();
-	  pinger = new PingerMock(4, 5);
-
+	drive = new DriveMock();
+	pinger = new PingerMock(20);
 	controller = new Controller(turret, drive, pinger);
+
 	State state = controller->setup();
 
-	state = controller->loop(initial);
-	cout << "loop(initial): " << state << endl;
-
-	state = controller->loop(driving);
-	cout << "loop(driving): " << state << endl;
-
-	state = controller->loop(stopped);
-	cout << "loop(stopped): " << state << endl;
+	EXPECT_EQ(initial, state);
 }
 
+TEST(StateChooserTestInitialStill, BasicAssertions) {
+	turret = new TurretMock();
+	drive = new DriveMock();
+	pinger = new PingerMock(20);
+	controller = new Controller(turret, drive, pinger);
 
+	State state = controller->loop(initial);
 
+	EXPECT_EQ(initial, state);
+}
+
+TEST(StateChooserTestDrivingClear, BasicAssertions) {
+	turret = new TurretMock();
+	drive = new DriveMock();
+	pinger = new PingerMock(20);
+	controller = new Controller(turret, drive, pinger);
+
+	State state = controller->loop(driving);
+
+	EXPECT_EQ(driving, state);
+}
+
+TEST(StateChooserTestDrivingBlocked, BasicAssertions) {
+	turret = new TurretMock();
+	drive = new DriveMock();
+	pinger = new PingerMock(2);
+	controller = new Controller(turret, drive, pinger);
+
+	State state = controller->loop(driving);
+
+	EXPECT_EQ(stopped, state);
+}
+
+TEST(StateChooserTestStoppedClear, BasicAssertions) {
+	turret = new TurretMock();
+	drive = new DriveMock();
+	pinger = new PingerMock(20);
+	controller = new Controller(turret, drive, pinger);
+
+	State state = controller->loop(stopped);
+
+	EXPECT_EQ(driving, state);
+}
+
+TEST(StateChooserTestStoppedBlocked, BasicAssertions) {
+	turret = new TurretMock();
+	drive = new DriveMock();
+	pinger = new PingerMock(2);
+	controller = new Controller(turret, drive, pinger);
+
+	State state = controller->loop(stopped);
+
+	EXPECT_EQ(stopped, state);
+}

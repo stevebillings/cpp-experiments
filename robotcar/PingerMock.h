@@ -2,8 +2,9 @@
 
 class PingerMock : public Pinger {
 	public:
-		PingerMock(unsigned int triggerPin, unsigned int echoPin);
+		PingerMock(int obstacleDistanceInches);
 		int getObstacleDistanceInches() override;
 		~PingerMock();
 	private:
+		int obstacleDistanceInches;
 };
